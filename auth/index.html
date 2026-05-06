@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vanilla auth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-screen">
+        <h2>Login</h2>
+        <input id="login-username" type="text" placeholder="Username">
+        <input id="login-password" type="password" placeholder="Password">
+        <button id="lgn-button">Login</button>
+        <p>Dont have an account? <a href="#" id="show-register">Register</a></p>
+    </div>
+    <div id="register-screen">
+        <h2>Register</h2>
+        <input id="reg-username" type="text" placeholder="Username">
+        <input id="reg-email" type="email" placeholder="Email">
+        <input id="reg-password" type="password" placeholder="Password">
+        <button id="reg-button">Register</button>
+        <p>Have an account? <a href="#" id="show-login">Login</a></p>
+    </div>
+    <div id="dashboard-screen">
+        <p id="user-details"></p>
+        <button id="logout-button">Logout</button>
+
+    </div>
+    <script src="app.js" type="module"></script>
+</body>
+</html>
