@@ -1,0 +1,303 @@
+:root {
+  --cute-pink: #ffb3d9;
+  --cute-blue: #a8e6ff;
+  --cute-yellow: #fff2a8;
+  --cute-green: #c7f0db;
+  --cute-purple: #e6ccff;
+  --soft-white: #fefefe;
+  --cute-shadow: 0 4px 15px rgba(255, 179, 217, 0.3);
+  --cute-border: 3px solid var(--cute-pink);
+  --cute-radius: 20px;
+  --cute-font: 'Comic Neue', 'Quicksand', cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--cute-font);
+  background: linear-gradient(135deg,
+    var(--cute-pink) 0%,
+    var(--cute-blue) 25%,
+    var(--cute-yellow) 50%,
+    var(--cute-green) 75%,
+    var(--cute-purple) 100%);
+  background-size: 400% 400%;
+  animation: rainbow-bg 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+@keyframes rainbow-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body::before {
+  content: '🐱 🐾 🌈 🐈 ✨';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  z-index: 10;
+  animation: float 3s ease-in-out infinite;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0px); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+#cats-container {
+  background: var(--soft-white);
+  border: var(--cute-border);
+  border-radius: var(--cute-radius);
+  padding: 30px;
+  box-shadow: var(--cute-shadow);
+  text-align: center;
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  animation: bounce-in 0.8s ease-out;
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-10deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+#cats-container::before {
+  content: '✨';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  font-size: 2rem;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 0.7; }
+}
+
+#cats-container::after {
+  content: '🌟';
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  font-size: 2rem;
+  animation: sparkle 2s ease-in-out infinite 1s;
+}
+
+#cats-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--cute-radius);
+  border: 3px solid var(--cute-blue);
+  box-shadow: 0 8px 25px rgba(168, 230, 255, 0.4);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+#cats-container img:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 12px 35px rgba(168, 230, 255, 0.6);
+}
+
+#cats-container p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--cute-pink);
+  margin-bottom: 25px;
+  text-shadow: 0 2px 4px rgba(255, 179, 217, 0.3);
+  position: relative;
+}
+
+#cats-container p::before {
+  content: '🐾';
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: paw-wave 1.5s ease-in-out infinite;
+}
+
+@keyframes paw-wave {
+  0%, 100% { transform: translateY(-50%) rotate(0deg); }
+  25% { transform: translateY(-50%) rotate(-10deg); }
+  75% { transform: translateY(-50%) rotate(10deg); }
+}
+
+#cats-container button {
+  background: linear-gradient(135deg, var(--cute-yellow), var(--cute-green));
+  border: 3px solid var(--cute-pink);
+  border-radius: 50px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--cute-pink);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(255, 242, 168, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+#cats-container button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+#cats-container button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 242, 168, 0.6);
+  background: linear-gradient(135deg, var(--cute-green), var(--cute-yellow));
+}
+
+#cats-container button:hover::before {
+  left: 100%;
+}
+
+#cats-container button:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Floating cat elements */
+.cat-float {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: float-random 8s ease-in-out infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.cat-float:nth-child(1) {
+  content: '🐱';
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.cat-float:nth-child(2) {
+  content: '🐈';
+  top: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.cat-float:nth-child(3) {
+  content: '😺';
+  bottom: 25%;
+  left: 15%;
+  animation-delay: 4s;
+}
+
+.cat-float:nth-child(4) {
+  content: '😸';
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 6s;
+}
+
+@keyframes float-random {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(-25px) rotate(2deg);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  body::before {
+    font-size: 1.5rem;
+    top: 15px;
+  }
+
+  #cats-container {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  #cats-container img {
+    border-radius: 15px;
+  }
+
+  #cats-container p {
+    font-size: 1.3rem;
+  }
+
+  #cats-container p::before {
+    left: -25px;
+  }
+
+  #cats-container button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Loading animation */
+@keyframes loading {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading {
+  border: 4px solid var(--cute-pink);
+  border-top: 4px solid var(--cute-blue);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: loading 1s linear infinite;
+  margin: 20px auto;
+}
+
+/* Heart animation for special moments */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.heartbeat {
+  animation: heartbeat 1s ease-in-out infinite;
+}
